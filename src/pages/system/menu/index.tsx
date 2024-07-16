@@ -68,7 +68,7 @@ function Page() {
 
   useEffect(() => {
     if (isFetch) getPage();
-  }, [isFetch])
+  }, [isFetch]);
 
   /**
    * 获取勾选表格数据

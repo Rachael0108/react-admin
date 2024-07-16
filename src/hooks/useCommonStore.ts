@@ -1,6 +1,7 @@
 
 import type { RootState } from '@/stores';
 import { useSelector } from 'react-redux';
+import { defaultMenus } from '@/menus';
 
 /**
  * 获取常用的状态数据
@@ -33,7 +34,8 @@ export const useCommonStore = () => {
   // 主题
   const theme = useSelector((state: RootState) => state.public.theme);
   // 菜单数据
-  const menuList = useSelector((state: RootState) => state.menu.menuList);
+  // const menuList = useSelector((state: RootState) => state.menu.menuList);  // 动态
+  const menuList = defaultMenus; // 静态
 
   return {
     isMaximize,

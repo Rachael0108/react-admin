@@ -257,7 +257,7 @@ export const getMenuName = (list: SideMenu[], path: string, lang: string) => {
 
     for (let i = 0; i < list?.length; i++) {
       const item = list[i];
-      
+
       if (item.key === path) {
         result = lang === 'en' ? item.labelEn : item.label;
         return result;

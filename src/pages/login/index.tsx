@@ -32,6 +32,7 @@ function Login() {
   const [messageApi, contextHolder] = message.useMessage();
   const { permissions, menuList } = useCommonStore();
   const themeCache = (localStorage.getItem(THEME_KEY) || 'light') as ThemeType;
+  const {menuList: staticMenu} = useCommonStore();
 
   useEffect(() => {
     if (!themeCache) {
@@ -80,10 +81,11 @@ function Login() {
 
     try {
       setLoading(true);
-      const { code, data } = await getMenuList();
-      if (Number(code) !== 200) return;
-      dispatch(setMenuList(data || []));
-      result = data;
+      // const { code, data } = await getMenuList();
+      // if (Number(code) !== 200) return;
+      // dispatch(setMenuList(menuList || []));
+      dispatch(setMenuList(staticMenu || []));
+      result = staticMenu;
     } finally {
       setLoading(false);
     }

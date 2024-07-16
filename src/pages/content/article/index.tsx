@@ -51,7 +51,7 @@ function Page() {
 
   useEffect(() => {
     if (isFetch) getPage();
-  }, [isFetch])
+  }, [isFetch]);
 
   /**
    * 点击搜索

@@ -2,6 +2,8 @@ export default {
   articleTitle: '文章管理',
   contentTitle: '内容管理',
   clipboard: '剪切板',
+  table: '表格',
+  searchTable: '搜索表格',
   clipboardMessage: '将“admin”传入复制按钮中',
   richText: '富文本',
   threeTierStructure: '三层结构',

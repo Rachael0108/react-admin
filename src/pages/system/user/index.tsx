@@ -79,13 +79,14 @@ function Page() {
 
   useEffect(() => {
     if (isFetch) getPage();
-  }, [isFetch])
+  }, [isFetch]);
 
   /**
    * 获取勾选表格数据
    * @param checks - 勾选
    */
   const getTableChecks = (checks: string[]) => {
+    console.log(checks);
     setTableFilters(checks);
   };
 

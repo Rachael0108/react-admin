@@ -7,18 +7,17 @@ import AxiosRequest from './request';
 // 生成环境所用的接口
 const prefixUrl = import.meta.env.VITE_BASE_URL as string;
 const baseURL = process.env.NODE_ENV !== 'development' ? prefixUrl : '/api';
-
 // 请求配置
-export const request = creteRequest(baseURL);
+export const request = createRequest(baseURL);
 
 // TODO：创建多个请求
-// export const newRequest = creteRequest('/test');
+// export const newRequest = createRequest('/test');
 
 /**
  * 创建请求
  * @param url - 链接地址
  */
-function creteRequest(url: string) {
+function createRequest(url: string) {
   return new AxiosRequest({
     baseURL: url,
     timeout: 180 * 1000,
@@ -49,13 +48,13 @@ function creteRequest(url: string) {
           handleError(data?.message);
           return res;
         }
-    
+
         // 错误处理
         if (data?.code !== 200) {
           handleError(data?.message);
           return res;
         }
-    
+
         return res;
       },
       responseInterceptorsCatch(err) {

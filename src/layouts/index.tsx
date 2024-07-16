@@ -11,7 +11,7 @@ import { versionCheck } from './utils/helper';
 import { getPermissions } from '@/servers/permissions';
 import { useCommonStore } from '@/hooks/useCommonStore';
 import { setPermissions, setUserInfo } from '@/stores/user';
-import { setMenuList, toggleCollapsed, togglePhone } from '@/stores/menu';
+import menu, { setMenuList, toggleCollapsed, togglePhone } from '@/stores/menu';
 import { getMenuList } from '@/servers/system/menu';
 import Menu from './components/Menu';
 import Header from './components/Header';
@@ -37,7 +37,8 @@ function Layout() {
     isMaximize,
     isCollapsed,
     isPhone,
-    isRefresh
+    isRefresh,
+    menuList
   } = useCommonStore();
 
   /** 获取用户信息和权限 */
@@ -62,9 +63,10 @@ function Layout() {
   const getMenuData = useCallback(async () => {
     try {
       setLoading(true);
-      const { code, data } = await getMenuList();
-      if (Number(code) !== 200) return;
-      dispatch(setMenuList(data || []));
+      // const { code, data } = await getMenuList();
+      // if (Number(code) !== 200) return;
+      // dispatch(setMenuList(data || []));
+      dispatch(setMenuList(menuList || []));
     } finally {
       setLoading(false);
     }
@@ -83,7 +85,7 @@ function Layout() {
       getMenuData();
     }
   }, [getUserInfo, getMenuData, navigate, token, userId]);
-  
+
   // 监测是否需要刷新
   useEffect(() => {
     versionCheck(messageApi);

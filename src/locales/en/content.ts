@@ -2,6 +2,7 @@ export default {
   articleTitle: 'Article Management',
   contentTitle: 'Content Management',
   clipboard: 'Clipboard',
+  table: 'Table',
   clipboardMessage: 'Pass "admin" into the copy button',
   richText: 'Rich Text',
   threeTierStructure: 'Three-tier structure',

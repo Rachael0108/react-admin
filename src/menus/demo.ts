@@ -8,6 +8,19 @@ export const demo: SideMenu[] = [
     icon: 'fluent:box-20-regular',
     children: [
       {
+        label: '表格',
+        labelEn: 'Table',
+        key: '/demo/table',
+        children: [
+          {
+            label: '查询表格',
+            labelEn: 'searchTable',
+            rule: '/demo',
+            key: '/demo/table/searchTable',
+          }
+        ]
+      },
+      {
         label: '剪切板',
         labelEn: 'Copy',
         key: '/demo/copy',
@@ -51,6 +64,7 @@ export const demo: SideMenu[] = [
           }
         ]
       },
+
     ]
   }
 ];
